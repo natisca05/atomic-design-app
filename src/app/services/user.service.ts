@@ -7,7 +7,7 @@ import { UsersResponse } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'https://reqres.in/api/users?page=2';
+  private apiUrl = 'https://reqres.in/api/users?page=1';
 
   constructor(private http: HttpClient) {}
 
