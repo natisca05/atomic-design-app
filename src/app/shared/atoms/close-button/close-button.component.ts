@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   template: `
     <button 
       class="close-button"
-      (click)="onClose()"
+      (click)="onClose($event)"
       aria-label="Close"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -49,9 +49,9 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class CloseButtonComponent {
-  @Output() close = new EventEmitter<void>();
+  @Output() close = new EventEmitter<MouseEvent>();
 
-  onClose() {
-    this.close.emit();
+  onClose(event: MouseEvent) {
+    this.close.emit(event);
   }
 }
