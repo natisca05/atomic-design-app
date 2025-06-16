@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsersResponse } from '../models/user.model';
 
@@ -12,6 +12,10 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<UsersResponse> {
-    return this.http.get<UsersResponse>(this.apiUrl);
+    const headers = new HttpHeaders({
+      'X-API-Key': 'reqres-free-v1'
+    });
+
+    return this.http.get<UsersResponse>(this.apiUrl, { headers });
   }
 }
